@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ოლიმპიური რგოლები</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="400"></canvas>
+  <script>
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+
+    function drawRing(x, y, radius, strokeColor) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, 2 * Math.PI);
+      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = 5;
+      ctx.stroke();
+    }
+
+    function drawOlympicRings() {
+      let radius = 50;
+      let startX = 100;
+      let startY = 100;
+      let offsetX = radius * 2 + 10;
+      let offsetY = radius + 10;
+
+      
+      drawRing(startX, startY, radius, "#0000FF"); 
+      drawRing(startX + offsetX, startY, radius, "#000000"); 
+      drawRing(startX + 2 * offsetX, startY, radius, "#FF0000"); 
+
+   
+      drawRing(startX + offsetX / 2, startY + offsetY, radius, "#FFFF00"); 
+      drawRing(startX + 1.5 * offsetX, startY + offsetY, radius, "#00FF00"); 
+    }
+
+    drawOlympicRings();
+  </script>
+</body>
+</html>
